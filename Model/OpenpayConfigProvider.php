@@ -70,7 +70,7 @@ class OpenpayConfigProvider implements ConfigProviderInterface
     }
     
     public function getMonths(){
-        return array(
+        $m = array(
             "1" => "01 - Enero",
             "2" => "02 - Febrero",
             "3" => "03 - Marzo",
@@ -84,6 +84,10 @@ class OpenpayConfigProvider implements ConfigProviderInterface
             "11"=> "11 - Noviembre",
             "12"=> "12 - Diciembre"
         );
+        sort($m);
+        array_unshift($m,null);
+        unset($m[0]);
+        return $m;
     }
     
     public function getYears(){
